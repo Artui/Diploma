@@ -39,12 +39,12 @@ class CarController:
 
     def calculate_initial_turn(self, photo_width):
         if self.goal_coordinates.get('x') < photo_width:
-            if (self.goal_coordinates.get('x') + 50) < photo_width / 2:
+            if (self.goal_coordinates.get('x') + 60) < photo_width / 2:
                 turn_koef = (photo_width - self.goal_coordinates.get('x')) / 10
                 self.movement.turn_right(0.1 * turn_koef)
                 return
         if self.goal_coordinates.get('x') > photo_width:
-            if (self.goal_coordinates.get('x') - 50) > photo_width / 2:
+            if (self.goal_coordinates.get('x') - 60) > photo_width / 2:
                 turn_koef = (photo_width - self.goal_coordinates.get('x')) / 10
                 self.movement.turn_right(0.1 * turn_koef)
                 return
@@ -52,7 +52,7 @@ class CarController:
 
     def run(self):
         self.movement.get_connection()
-        self.movement.start_all_wheels("050")
+        self.movement.start_all_wheels("070")
         while self.goal:
             distances = distance.get_distance_lists()
             print(distances)
