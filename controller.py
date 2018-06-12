@@ -58,8 +58,13 @@ class CarController:
         while self.goal:
             distances = self.distance.get_distance_list()
             print(distances)
-            if distances[4] <= 5 or (len(self.distance_history) > 1 and (self.distance_history[-1] - distances[4] < 3)):
+            if distances[4] <= 5 or (len(self.distance_history) > 2 and self.distance_not_changed(distances[4])):
                 self.movement.stop_all_wheels()
                 self.goal = None
             self.distance_history.append(distances[4])
             time.sleep(0.3)
+
+    def distance_not_changed(self, distance):
+        return (len(self.distance_history) > 3
+                and (self.distance_history[-1] - distance < 3)
+                and (self.distance_history[-2] - distance < 3))
