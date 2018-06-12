@@ -4,6 +4,7 @@ ser = None
 
 
 def get_connection():
+    global ser
     ser = serial.Serial()
     ser.port = "/dev/ttyACM0"
     ser.baudrate = 115200
