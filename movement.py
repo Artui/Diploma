@@ -23,6 +23,7 @@ def start_wheel(index, speed):
     str_to_send = "M" + str(index) + speed
     if ser:
         for i in str_to_send:
+            time.sleep(0.1)
             ser.write(bytes(i))
 
 
