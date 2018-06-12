@@ -27,4 +27,5 @@ def get_distance_lists():
             temp = [i]
         else:
             temp.append(i)
+    print(data_int)
     return glob_temp[0] if glob_temp else None
