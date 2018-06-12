@@ -21,6 +21,9 @@ class CarController:
         self.goal = result.get("name")
         self.goal_coordinates = {"x": (result.get("start_x") + result.get('end_x'))/2,
                                  "y": (result.get("start_y") + result.get('end_y'))/2}
+        distance.get_connection()
+        distances = distance.get_distance_lists()
+        print(distances)
 
     def calculate_turn(self):
         pass
