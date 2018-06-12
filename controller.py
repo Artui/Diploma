@@ -58,4 +58,5 @@ class CarController:
             print(distances)
             if distances[4] <= 5:
                 self.movement.stop_all_wheels()
+                self.goal = None
             time.sleep(0.3)
