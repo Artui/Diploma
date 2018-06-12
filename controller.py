@@ -15,6 +15,7 @@ class CarController:
     goal_coordinates = {}
     initial_distance = 0
     movement = movement.Movement()
+    distance = distance.Distance()
 
     def __init__(self, args):
         image = camera.get_image()
@@ -32,8 +33,8 @@ class CarController:
             self.goal = result.get("name")
             self.goal_coordinates = {"x": (result.get("start_x") + result.get('end_x')) / 2,
                                      "y": (result.get("start_y") + result.get('end_y')) / 2}
-            distance.get_connection()
-            distances = distance.get_distance_list()
+            self.distance.get_connection()
+            distances = self.distance.get_distance_list()
             self.initial_distance = distances[4]
             self.calculate_initial_turn(result.get("image_width"))
 
@@ -54,7 +55,7 @@ class CarController:
         self.movement.get_connection()
         self.movement.start_all_wheels("070")
         while self.goal:
-            distances = distance.get_distance_list()
+            distances = self.distance.get_distance_list()
             print(distances)
             if distances[4] <= 5:
                 self.movement.stop_all_wheels()
