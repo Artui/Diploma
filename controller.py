@@ -60,6 +60,8 @@ class CarController:
                 time.sleep(0.5)
                 self.movement.stop_all_wheels()
                 self.movement.turn_left(0.1 * turn_koef)
+                time.sleep(0.5)
+                self.movement.start_all_wheels("070")
                 return
 
         if coords_data.get('x') > photo_width / 2:
@@ -74,6 +76,8 @@ class CarController:
                 time.sleep(0.5)
                 self.movement.stop_all_wheels()
                 self.movement.turn_right(0.1 * turn_koef)
+                time.sleep(0.5)
+                self.movement.start_all_wheels("070")
                 return
 
         print("No need to turn")
