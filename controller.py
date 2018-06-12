@@ -1,4 +1,4 @@
-from .camera import get_image
+import camera
 import requests as rq
 import distance, movement
 import json
@@ -9,7 +9,7 @@ class CarController:
     goal_coordinates = {}
 
     def __init__(self, *args):
-        image = get_image()
+        image = camera.get_image()
         ngrok_data = args[1] if len(args) > 1 else ""
         print(ngrok_data)
         address = "http://" + str(ngrok_data) + "ngrok.io/"
