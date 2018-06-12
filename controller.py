@@ -112,6 +112,6 @@ class CarController:
                     # self.turn_to_avoid(avoid_coords, new_photo.get("image_width"))
 
     def distance_not_changed(self, distance):
-        return (len(self.distance_history) > 3
+        return (len(self.distance_history) > 2
                 and (self.distance_history[-1] - distance < 10)
                 and (self.distance_history[-2] - distance < 10))
