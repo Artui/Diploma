@@ -5,55 +5,51 @@ import serial
 ser = None
 
 
-def get_connection():
-    global ser
-    if not ser:
-        ser = serial.Serial()
-        ser.port = "/dev/ttyUSB0"
-        ser.baudrate = 115200
-        ser.open()
-    return ser
+class Movement:
+    ser = None
 
+    def __init__(self):
+        self.get_connection()
 
-def close_connection():
-    ser.close()
+    def get_connection(self):
+        if not self.ser:
+            self.ser = serial.Serial()
+            self.ser.port = "/dev/ttyUSB0"
+            self.ser.baudrate = 115200
+            self.ser.open()
+        return self.ser
 
+    def close_connection(self):
+        self.ser.close()
 
-def start_wheel(index, speed):
-    global ser
-    str_to_send = "M" + str(index) + "+" + speed
-    print(str_to_send)
-    if ser:
-        for i in str_to_send:
-            time.sleep(0.01)
-            ser.write(bytes(i))
+    def start_wheel(self, index, speed):
+        str_to_send = "M" + str(index) + "+" + speed
+        print(str_to_send)
+        if self.ser:
+            for i in str_to_send:
+                time.sleep(0.01)
+                self.ser.write(bytes(i))
 
+    def turn_right(self, timeout):
+        self.start_wheel(1, '050')
+        time.sleep(timeout)
+        self.stop_wheel(1)
 
-def turn_right(timeout):
-    start_wheel(1, '050')
-    time.sleep(timeout)
-    stop_wheel(1)
+    def turn_left(self, timeout):
+        self.start_wheel(2, '050')
+        time.sleep(timeout)
+        self.stop_wheel(1)
 
+    def start_all_wheels(self, speed):
+        for i in range(1, 5):
+            self.start_wheel(i, speed)
 
-def turn_left(timeout):
-    start_wheel(2, '050')
-    time.sleep(timeout)
-    stop_wheel(1)
+    def stop_wheel(self, index):
+        if self.ser:
+            for i in ["M", str(index), "+", "0", "0", "0"]:
+                time.sleep(0.01)
+                self.ser.write(bytes(i))
 
-
-def start_all_wheels(speed):
-    for i in range(1, 5):
-        start_wheel(i, speed)
-
-
-def stop_wheel(index):
-    global ser
-    if ser:
-        for i in ["M", str(index), "+", "0", "0", "0"]:
-            time.sleep(0.01)
-            ser.write(bytes(i))
-
-
-def stop_all_wheels():
-    for i in range(1, 5):
-        stop_wheel(i)
+    def stop_all_wheels(self):
+        for i in range(1, 5):
+            self.stop_wheel(i)
