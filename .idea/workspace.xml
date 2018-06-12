@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e98af76d-5a04-4962-8887-d4037efef563" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/movement.py" beforeDir="false" afterPath="$PROJECT_DIR$/movement.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_script.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -55,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="movement.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="movement.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/movement.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="536">
-              <caret line="46" column="12" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="29" />
+            <state relative-caret-position="345">
+              <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -84,11 +85,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testing_script.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="testing_script.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/testing_script.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="23" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="23" />
+            <state relative-caret-position="75">
+              <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -119,8 +120,8 @@
         <option value="$PROJECT_DIR$/app/run.py" />
         <option value="$PROJECT_DIR$/server.py" />
         <option value="$PROJECT_DIR$/deep_learning_object_detection.py" />
-        <option value="$PROJECT_DIR$/testing_script.py" />
         <option value="$PROJECT_DIR$/movement.py" />
+        <option value="$PROJECT_DIR$/testing_script.py" />
       </list>
     </option>
   </component>
@@ -339,16 +340,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testing_script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="23" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -361,10 +352,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/movement.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="46" column="12" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="29" />
+        <state relative-caret-position="345">
+          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testing_script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
