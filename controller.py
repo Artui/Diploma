@@ -53,11 +53,11 @@ class CarController:
                 turn_koef = (photo_width - coords_data.get('x')) / 15
                 self.movement.turn_left(0.1 * turn_koef / 2)
                 self.movement.start_all_wheels("070")
-                time.sleep(1)
+                time.sleep(0.5)
                 self.movement.stop_all_wheels()
                 self.movement.turn_right(0.1 * turn_koef / 2)
                 self.movement.start_all_wheels("070")
-                time.sleep(1)
+                time.sleep(0.5)
                 self.movement.stop_all_wheels()
                 self.movement.turn_left(0.1 * turn_koef)
                 return
@@ -67,11 +67,11 @@ class CarController:
                 turn_koef = (coords_data.get('x') - photo_width) / 15
                 self.movement.turn_right(0.1 * turn_koef / 2)
                 self.movement.start_all_wheels("070")
-                time.sleep(1)
+                time.sleep(0.5)
                 self.movement.stop_all_wheels()
                 self.movement.turn_left(0.1 * turn_koef / 2)
                 self.movement.start_all_wheels("070")
-                time.sleep(1)
+                time.sleep(0.5)
                 self.movement.stop_all_wheels()
                 self.movement.turn_right(0.1 * turn_koef)
                 return
