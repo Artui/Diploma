@@ -18,24 +18,31 @@ def close_connection():
     ser.close()
 
 
-def start_wheel(index):
+def start_wheel(index, speed):
     global ser
+    str_to_send = "M" + str(index) + speed
     if ser:
-        for i in ["M", str(index), "+", "0", "5", "0"]:
-            time.sleep(0.1)
+        for i in str_to_send:
             ser.write(bytes(i))
 
 
-def start_all_wheels():
+def turn_right():
+    pass
+
+
+def turn_left():
+    pass
+
+
+def start_all_wheels(speed):
     for i in range(1, 5):
-        start_wheel(i)
+        start_wheel(i, speed)
 
 
 def stop_wheel(index):
     global ser
     if ser:
         for i in ["M", str(index), "+", "0", "0", "0"]:
-            time.sleep(0.1)
             ser.write(bytes(i))
 
 

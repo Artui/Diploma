@@ -5,6 +5,7 @@ import argparse
 
 import cv2
 import numpy as np
+from PIL import Image
 
 def detect_object():
     predictions = []
@@ -24,6 +25,7 @@ def detect_object():
     )
 
     image = cv2.imread("/Users/arturveres/image.png")
+    pil_image = Image.open("/Users/arturveres/image.png")
     (h, w) = image.shape[:2]
     blob = cv2.dnn.blobFromImage(cv2.resize(image, (300, 300)), 0.007843, (300, 300), 127.5)
 
@@ -40,14 +42,16 @@ def detect_object():
             box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
             (startX, startY, endX, endY) = box.astype("int")
             label = "{}".format(CLASSES[idx])
-            lanel_conf = confidence * 100
+            lanel_conf = "{:.2f}".format(confidence * 100)
             object_detected = {
                 "name": label,
-                "confidence": lanel_conf,
-                "start_x": startX,
-                "start_y": startY,
-                "end_x": endX,
-                "end_y": endY,
+                "confidence": float(lanel_conf),
+                "start_x": int(startX),
+                "start_y": int(startY),
+                "end_x": int(endX),
+                "end_y": int(endY),
+                "image_width": pil_image.size[0],
+                "image_height": pil_image.size[1]
             }
             predictions.append(object_detected)
     return predictions
