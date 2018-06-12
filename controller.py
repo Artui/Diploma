@@ -1,13 +1,25 @@
 from .camera import get_image
 import requests as rq
 import distance, movement
+import json
 
 
 class CarController:
-    goal = None
+    goal = ""
+    goal_coordinates = {}
 
-    def __init__(self):
+    def __init__(self, *args):
         image = get_image()
+        if len(args) < 2:
+            raise Exception()
+        ngrok_data = args[1] if len(args) > 1 else ""
+        address = f"http://{ngrok_data}.ngrok.io/"
+        res = rq.post(url=address, files={"file": open("opencv.png").read()})
+        result = json.loads(res.text)
+        print(result)
+        self.goal = result.get("name")
+        self.goal_coordinates = {"x": (result.get("start_x") + result.get('end_x'))/2,
+                                 "y": (result.get("start_y") + result.get('end_y'))/2}
 
     def calculate_turn(self):
         pass
