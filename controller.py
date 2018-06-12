@@ -2,6 +2,7 @@ import camera
 import requests as rq
 import distance, movement
 import json
+import operator
 
 
 class CarController:
@@ -15,7 +16,8 @@ class CarController:
         res = rq.post(url=address, files={"file": open("opencv.png").read()})
         print(res.text)
         result = json.loads(res.text)
-        print(result)
+        result.sort(key=operator.itemgetter('confidence'))
+        result = result[0]
         self.goal = result.get("name")
         self.goal_coordinates = {"x": (result.get("start_x") + result.get('end_x'))/2,
                                  "y": (result.get("start_y") + result.get('end_y'))/2}
