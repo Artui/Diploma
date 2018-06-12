@@ -25,6 +25,7 @@ def start_wheel(index, speed):
     print(str_to_send)
     if ser:
         for i in str_to_send:
+            time.sleep(0.01)
             ser.write(bytes(i))
 
 
@@ -49,6 +50,7 @@ def stop_wheel(index):
     global ser
     if ser:
         for i in ["M", str(index), "+", "0", "0", "0"]:
+            time.sleep(0.01)
             ser.write(bytes(i))
 
 
