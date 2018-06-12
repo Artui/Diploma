@@ -18,7 +18,7 @@ def close_connection():
 
 def get_distance_lists():
     data = ser.read(100)
-    data_int = [int(val) for val in data]
+    data_int = [val for val in data]
     glob_temp, temp = [], []
     for i in data_int:
         if i == 36:
