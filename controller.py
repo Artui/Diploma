@@ -13,7 +13,7 @@ class CarController:
         image = camera.get_image()
         ngrok_data = args[1] if len(args) > 1 else ""
         address = "http://" + str(ngrok_data) + ".ngrok.io/"
-        res = rq.post(url=address, files={"file": open("opencv.png").read()})
+        res = rq.post(url=address, files={"file": open("opencv.png", "rb").read()})
         print(res.text)
         result = json.loads(res.text)
         result.sort(key=operator.itemgetter('confidence'))
