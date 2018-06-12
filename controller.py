@@ -106,7 +106,7 @@ class CarController:
             time.sleep(0.3)
             new_photo = self.get_photo_data()
             if new_photo:
-                if new_photo.get('name') != self.goal:
+                if new_photo.get('name') != self.goal and new_photo.get('confidence') > 50:
                     avoid_coords = {"x": (new_photo.get("start_x") + new_photo.get('end_x')) / 2,
                                     "y": (new_photo.get("start_y") + new_photo.get('end_y')) / 2}
                     self.turn_to_avoid(avoid_coords, new_photo.get("image_width"))
