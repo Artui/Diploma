@@ -16,6 +16,7 @@ class CarController:
     initial_distance = 0
     movement = movement.Movement()
     distance = distance.Distance()
+    distance_history = []
 
     def __init__(self, args):
         image = camera.get_image()
@@ -57,7 +58,8 @@ class CarController:
         while self.goal:
             distances = self.distance.get_distance_list()
             print(distances)
-            if distances[3] <= 5:
+            if distances[3] <= 5 or (len(self.distance_history) > 1 and (self.distance_history[-1] - distances[3] < 5)):
                 self.movement.stop_all_wheels()
                 self.goal = None
+            self.distance_history.append(distances[3])
             time.sleep(0.3)
