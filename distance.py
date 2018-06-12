@@ -18,7 +18,6 @@ def close_connection():
 
 def get_distance_lists():
     data = ser.read(100)
-    print([val for val in data])
     data_int = [ord(val) for val in data]
     glob_temp, temp = [], []
     for i in data_int:
@@ -28,5 +27,4 @@ def get_distance_lists():
             temp = [i]
         else:
             temp.append(i)
-    print(data_int)
     return glob_temp[0] if glob_temp else None
