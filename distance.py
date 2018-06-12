@@ -31,4 +31,7 @@ class Distance:
             else:
                 temp.append(item)
 
+        for dist in glob_temp:
+            if dist[1] == 83:
+                return dist
         return glob_temp[0] if glob_temp else None
