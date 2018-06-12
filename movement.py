@@ -30,19 +30,27 @@ class Movement:
                 time.sleep(0.01)
                 self.ser.write(bytes(i))
 
+    def start_wheel_back(self, index, speed):
+        str_to_send = "M" + str(index) + "-" + speed
+        print(str_to_send)
+        if self.ser:
+            for i in str_to_send:
+                time.sleep(0.01)
+                self.ser.write(bytes(i))
+
     def turn_right(self, timeout):
         self.start_wheel(2, '100')
-        self.start_wheel(4, '100')
+        self.start_wheel_back(1, '100')
         time.sleep(timeout)
+        self.stop_wheel(1)
         self.stop_wheel(2)
-        self.stop_wheel(4)
 
     def turn_left(self, timeout):
         self.start_wheel(1, '100')
-        self.start_wheel(3, '100')
+        self.start_wheel_back(2, '100')
         time.sleep(timeout)
         self.stop_wheel(1)
-        self.stop_wheel(3)
+        self.stop_wheel(2)
 
     def start_all_wheels(self, speed):
         for i in range(1, 5):
