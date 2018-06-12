@@ -1,7 +1,7 @@
 import sys
-from controller import CarController
+import controller
 
 
-controller = CarController(sys.argv)
+controller = controller.CarController(sys.argv)
 
 controller.run()
