@@ -36,14 +36,14 @@ class CarController:
 
     def calculate_initial_turn(self, photo_width):
         if self.goal_coordinates.get('x') < photo_width / 2:
-            if (self.goal_coordinates.get('x') + 50) < photo_width / 2:
+            if (self.goal_coordinates.get('x') + 70) < photo_width / 2:
                 turn_koef = (photo_width/2 - self.goal_coordinates.get('x')) / 30
-                self.movement.turn_left(0.1 * turn_koef)
+                self.movement.turn_left(0.05 * turn_koef)
                 return
         if self.goal_coordinates.get('x') > photo_width / 2:
-            if (self.goal_coordinates.get('x') - 50) > photo_width / 2:
+            if (self.goal_coordinates.get('x') - 70) > photo_width / 2:
                 turn_koef = (self.goal_coordinates.get('x') - photo_width/2) / 30
-                self.movement.turn_right(0.1 * turn_koef)
+                self.movement.turn_right(0.05 * turn_koef)
                 return
         print("No need to turn")
 
@@ -51,15 +51,15 @@ class CarController:
         if coords_data.get('x') < photo_width / 2:
             if coords_data.get('x') + 50 > photo_width / 2:
                 turn_koef = (photo_width/2 - coords_data.get('x')) / 30
-                self.movement.turn_left((0.1 * turn_koef / 2))
+                self.movement.turn_left((0.05 * turn_koef / 2))
                 self.movement.start_all_wheels("070")
                 time.sleep(0.5)
                 self.movement.stop_all_wheels()
-                self.movement.turn_right(0.1 * turn_koef / 2)
+                self.movement.turn_right(0.05 * turn_koef / 2)
                 self.movement.start_all_wheels("070")
                 time.sleep(0.5)
                 self.movement.stop_all_wheels()
-                self.movement.turn_left(0.1 * turn_koef)
+                self.movement.turn_left(0.05 * turn_koef)
                 time.sleep(0.5)
                 self.movement.start_all_wheels("070")
                 return
@@ -67,15 +67,15 @@ class CarController:
         if coords_data.get('x') > photo_width / 2:
             if coords_data.get('x') - 50 < photo_width / 2:
                 turn_koef = (coords_data.get('x') - photo_width/2) / 30
-                self.movement.turn_right(0.1 * turn_koef / 2)
+                self.movement.turn_right(0.05 * turn_koef / 2)
                 self.movement.start_all_wheels("070")
                 time.sleep(0.5)
                 self.movement.stop_all_wheels()
-                self.movement.turn_left(0.1 * turn_koef / 2)
+                self.movement.turn_left(0.05 * turn_koef / 2)
                 self.movement.start_all_wheels("070")
                 time.sleep(0.5)
                 self.movement.stop_all_wheels()
-                self.movement.turn_right(0.1 * turn_koef)
+                self.movement.turn_right(0.05 * turn_koef)
                 time.sleep(0.5)
                 self.movement.start_all_wheels("070")
                 return
@@ -103,10 +103,10 @@ class CarController:
                 self.goal = None
                 self.movement.stop_all_wheels()
             self.distance_history.append(distances[4])
-            time.sleep(0.3)
+            time.sleep(0.2)
             new_photo = self.get_photo_data()
             if new_photo:
-                if new_photo.get('name') != self.goal and new_photo.get('confidence') > 70:
+                if new_photo.get('name') != self.goal and new_photo.get('confidence') > 80:
                     avoid_coords = {"x": (new_photo.get("start_x") + new_photo.get('end_x')) / 2,
                                     "y": (new_photo.get("start_y") + new_photo.get('end_y')) / 2}
                     self.turn_to_avoid(avoid_coords, new_photo.get("image_width"))
