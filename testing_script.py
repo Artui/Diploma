@@ -1,6 +1,8 @@
 import movement
 import time
 
+movement = movement.Movement()
+
 movement.get_connection()
 time.sleep(1)
 movement.start_all_wheels("070")
