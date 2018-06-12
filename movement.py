@@ -20,10 +20,10 @@ def close_connection():
 
 def start_wheel(index, speed):
     global ser
-    str_to_send = "M" + str(index) + speed
+    str_to_send = "M" + str(index) + "+" + speed
     if ser:
         for i in str_to_send:
-            time.sleep(0.1)
+            # time.sleep(0.1)
             ser.write(bytes(i))
 
 
@@ -44,7 +44,7 @@ def stop_wheel(index):
     global ser
     if ser:
         for i in ["M", str(index), "+", "0", "0", "0"]:
-            time.sleep(0.1)
+            # time.sleep(0.1)
             ser.write(bytes(i))
 
 
