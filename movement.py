@@ -27,12 +27,16 @@ def start_wheel(index, speed):
             ser.write(bytes(i))
 
 
-def turn_right():
-    pass
+def turn_right(timeout):
+    start_wheel(1, '050')
+    time.sleep(timeout)
+    stop_wheel(1)
 
 
-def turn_left():
-    pass
+def turn_left(timeout):
+    start_wheel(2, '050')
+    time.sleep(timeout)
+    stop_wheel(1)
 
 
 def start_all_wheels(speed):
