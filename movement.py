@@ -31,12 +31,12 @@ class Movement:
                 self.ser.write(bytes(i))
 
     def turn_right(self, timeout):
-        self.start_wheel(2, '070')
+        self.start_wheel(2, '100')
         time.sleep(timeout)
         self.stop_wheel(2)
 
     def turn_left(self, timeout):
-        self.start_wheel(1, '070')
+        self.start_wheel(1, '100')
         time.sleep(timeout)
         self.stop_wheel(1)
 
