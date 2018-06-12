@@ -113,5 +113,5 @@ class CarController:
 
     def distance_not_changed(self, distance):
         return (len(self.distance_history) > 3
-                and (self.distance_history[-1] - distance < 5)
-                and (self.distance_history[-2] - distance < 5))
+                and (self.distance_history[-1] - distance < 10)
+                and (self.distance_history[-2] - distance < 10))
