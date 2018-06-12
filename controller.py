@@ -35,7 +35,7 @@ class CarController:
                                      "y": (result.get("start_y") + result.get('end_y')) / 2}
             self.distance.get_connection()
             distances = self.distance.get_distance_list()
-            self.initial_distance = distances[4]
+            self.initial_distance = distances[3]
             self.calculate_initial_turn(result.get("image_width"))
 
     def calculate_initial_turn(self, photo_width):
@@ -57,7 +57,7 @@ class CarController:
         while self.goal:
             distances = self.distance.get_distance_list()
             print(distances)
-            if distances[4] <= 5:
+            if distances[3] <= 5:
                 self.movement.stop_all_wheels()
                 self.goal = None
             time.sleep(0.3)
