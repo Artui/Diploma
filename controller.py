@@ -109,7 +109,7 @@ class CarController:
                 if new_photo.get('name') != self.goal and new_photo.get('confidence') > 80:
                     avoid_coords = {"x": (new_photo.get("start_x") + new_photo.get('end_x')) / 2,
                                     "y": (new_photo.get("start_y") + new_photo.get('end_y')) / 2}
-                    self.turn_to_avoid(avoid_coords, new_photo.get("image_width"))
+                    # self.turn_to_avoid(avoid_coords, new_photo.get("image_width"))
 
     def distance_not_changed(self, distance):
         return (len(self.distance_history) > 3
