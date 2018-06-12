@@ -99,7 +99,7 @@ class CarController:
         while self.goal:
             distances = self.distance.get_distance_list()
             print(distances)
-            if (distances[4] <= 5 and distances[3] < 200) or self.distance_not_changed(distances[4]):
+            if (distances[4] <= 5) or self.distance_not_changed(distances[4]):
                 self.goal = None
                 self.movement.stop_all_wheels()
             self.distance_history.append(distances[4])
