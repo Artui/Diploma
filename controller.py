@@ -8,12 +8,12 @@ class CarController:
     goal = ""
     goal_coordinates = {}
 
-    def __init__(self, *args):
+    def __init__(self, args):
         image = camera.get_image()
         ngrok_data = args[1] if len(args) > 1 else ""
-        print(ngrok_data)
-        address = "http://" + str(ngrok_data) + "ngrok.io/"
+        address = "http://" + str(ngrok_data) + ".ngrok.io/"
         res = rq.post(url=address, files={"file": open("opencv.png").read()})
+        print(res.text)
         result = json.loads(res.text)
         print(result)
         self.goal = result.get("name")
