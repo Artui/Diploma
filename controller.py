@@ -97,6 +97,7 @@ class CarController:
             print(distances)
             if (distances[4] <= 5 and distances[3] < 200) or self.distance_not_changed(distances[4]):
                 self.goal = None
+                self.movement.stop_all_wheels()
             self.distance_history.append(distances[4])
             time.sleep(0.3)
             new_photo = self.get_photo_data()
