@@ -47,8 +47,6 @@ class CarController:
         print("No need to turn")
 
 
-
-
     def run(self):
         movement.get_connection()
         movement.start_all_wheels("050")
