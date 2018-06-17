@@ -40,17 +40,13 @@ class Movement:
 
     def turn_right(self, timeout):
         self.start_wheel_back(2, '150')
-        self.start_wheel(3, '150')
         time.sleep(timeout)
         self.stop_wheel(2)
-        self.stop_wheel(3)
 
     def turn_left(self, timeout):
-        self.start_wheel_back(1, '150')
-        self.start_wheel(4, '150')
+        self.start_wheel(1, '150')
         time.sleep(timeout)
         self.stop_wheel(1)
-        self.stop_wheel(4)
 
     def start_all_wheels(self, speed):
         for i in range(1, 5):
