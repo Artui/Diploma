@@ -38,14 +38,14 @@ class Movement:
                 time.sleep(0.01)
                 self.ser.write(bytes(i))
 
-    def turn_right(self, timeout):
+    def turn_left(self, timeout):
         self.start_wheel_back(1, '100')
         self.start_wheel(4, '120')
         time.sleep(timeout)
         self.stop_wheel(1)
         self.stop_wheel(4)
 
-    def turn_left(self, timeout):
+    def turn_right(self, timeout):
         self.start_wheel_back(2, '100')
         self.start_wheel(3, '120')
         time.sleep(timeout)
