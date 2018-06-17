@@ -52,32 +52,32 @@ class CarController:
             if coords_data.get('x') + 50 > photo_width / 2:
                 turn_koef = (photo_width/2 - coords_data.get('x')) / 30
                 self.movement.turn_left((0.05 * turn_koef / 2))
-                self.movement.start_all_wheels("070")
+                self.movement.start_all_wheels("060")
                 time.sleep(0.5)
                 self.movement.stop_all_wheels()
                 self.movement.turn_right(0.05 * turn_koef / 2)
-                self.movement.start_all_wheels("070")
+                self.movement.start_all_wheels("060")
                 time.sleep(0.5)
                 self.movement.stop_all_wheels()
                 self.movement.turn_left(0.05 * turn_koef)
                 time.sleep(0.5)
-                self.movement.start_all_wheels("070")
+                self.movement.start_all_wheels("060")
                 return
 
         if coords_data.get('x') > photo_width / 2:
             if coords_data.get('x') - 50 < photo_width / 2:
                 turn_koef = (coords_data.get('x') - photo_width/2) / 30
                 self.movement.turn_right(0.05 * turn_koef / 2)
-                self.movement.start_all_wheels("070")
+                self.movement.start_all_wheels("060")
                 time.sleep(0.5)
                 self.movement.stop_all_wheels()
                 self.movement.turn_left(0.05 * turn_koef / 2)
-                self.movement.start_all_wheels("070")
+                self.movement.start_all_wheels("060")
                 time.sleep(0.5)
                 self.movement.stop_all_wheels()
                 self.movement.turn_right(0.05 * turn_koef)
                 time.sleep(0.5)
-                self.movement.start_all_wheels("070")
+                self.movement.start_all_wheels("060")
                 return
 
         print("No need to turn")
@@ -95,7 +95,7 @@ class CarController:
 
     def run(self):
         self.movement.get_connection()
-        self.movement.start_all_wheels("070")
+        self.movement.start_all_wheels("060")
         while self.goal:
             distances = self.distance.get_distance_list()
             print(distances)
@@ -109,7 +109,7 @@ class CarController:
                 if new_photo.get('name') != self.goal and new_photo.get('confidence') > 80:
                     avoid_coords = {"x": (new_photo.get("start_x") + new_photo.get('end_x')) / 2,
                                     "y": (new_photo.get("start_y") + new_photo.get('end_y')) / 2}
-                    # self.turn_to_avoid(avoid_coords, new_photo.get("image_width"))
+                    self.turn_to_avoid(avoid_coords, new_photo.get("image_width"))
 
     def distance_not_changed(self, distance):
         return (len(self.distance_history) > 2

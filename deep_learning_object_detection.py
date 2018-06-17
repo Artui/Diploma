@@ -7,6 +7,7 @@ import cv2
 import numpy as np
 from PIL import Image
 
+
 def detect_object():
     predictions = []
     ap = argparse.ArgumentParser()
@@ -37,7 +38,6 @@ def detect_object():
         confidence = detections[0, 0, i, 2]
 
         if confidence > args["confidence"]:
-
             idx = int(detections[0, 0, i, 1])
             box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
             (startX, startY, endX, endY) = box.astype("int")
